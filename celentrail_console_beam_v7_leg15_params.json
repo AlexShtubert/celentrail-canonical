@@ -1,0 +1,35 @@
+{
+  "units": "mm",
+  "version": "v7_leg15",
+  "change_from_v6": "Angle legs changed from 20x20 to 15x15 (thickness kept at 2 mm).",
+  "axes_gltf": {
+    "X": "length",
+    "Y": "up",
+    "Z": "forward = -engineering Y"
+  },
+  "L_total_X": 1150.0,
+  "members_X": {
+    "length": 1146.0,
+    "x0": 2.0,
+    "x1": 1148.0
+  },
+  "angles": {
+    "leg": 15.0,
+    "thickness": 2.0,
+    "rotation_deg_in_section": 45.0,
+    "vertex_to_vertex_Z": 97.4
+  },
+  "plates_GV": {
+    "thickness_Y": 2.0,
+    "height_Z": 50.0
+  },
+  "plates_D": {
+    "thickness_X": 2.0,
+    "width_Y": 20.0,
+    "height_Z": 201.4,
+    "Y_center": 10.0,
+    "z_min": -50.0,
+    "z_max": 151.4
+  },
+  "Y_centerline_for_weld": 10.0
+}

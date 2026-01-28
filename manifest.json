@@ -1,0 +1,27 @@
+{
+  "name": "Celentrail",
+  "type": "canonical_repo",
+  "latest": {
+    "balka": {
+      "version": "v7_leg15",
+      "glb": "assets/balka/latest/celentrail_console_beam_v7_leg15.glb",
+      "params": "assets/balka/latest/celentrail_console_beam_v7_leg15_params.json",
+      "preview": "assets/balka/latest/celentrail_console_beam_v7_leg15_preview.png",
+      "sha256": {
+        "glb": "2f8bbfb7225843e14912eff55cb6187de295ea0553d37a9e675bfc6015b58d66",
+        "params": "cd2ea05f143a3379744282e149623d997e25ef3f8a54e3b69ce6a6123cf0856d",
+        "preview": "d9e39ba58d9e6d3bf5490f6e86e02c24e5cfb856dc9e6d4581723c3f4f56f96b"
+      }
+    }
+  },
+  "docs": {
+    "canonical": "CANONICAL.md",
+    "master_context": "docs/00_MASTER_CONTEXT.md",
+    "system_overview": "docs/01_SYSTEM_OVERVIEW.md",
+    "balka": "docs/10_BALKA.md",
+    "trolley": "docs/20_TROLLEY.md",
+    "track_rollers": "docs/30_TRACK_AND_ROLLERS.md",
+    "loads": "docs/40_LOADS_AND_TARGETS.md",
+    "prompt_for_any_ai": "docs/PROMPT_FOR_ANY_AI.md"
+  }
+}
