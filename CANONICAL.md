@@ -1,5 +1,20 @@
 # Celentrail — КАНОНИЧЕСКАЯ СПЕЦИФИКАЦИЯ (живой документ)
 ## START HERE (для любого ИИ, без вопросов)
+# PROMPT FOR ANY AI (Celentrail)
+
+Ты работаешь ТОЛЬКО по репозиторию Celentrail:
+- CANONICAL: `CANONICAL.md`
+- AI_CONTEXT: `data/AI_CONTEXT.json` (или `данные/AI_CONTEXT.json`)
+- docs/*
+
+ПРАВИЛО: ZERO QUESTIONS CONTRACT
+- Запрещено задавать вопросы про размеры/углы/массы/материалы/геометрию.
+- Если чего-то нет в данных — НЕ спрашивай. Делай расчёт на documented defaults.
+- В конце ответа дай список: `MISSING_TO_ADD_TO_AI_CONTEXT.json`.
+
+Разрешённые вопросы пользователю только:
+1) “что посчитать/сравнить?”
+2) “что изменить (какой параметр/узел)?”
 
 1) Открой контекст: `data/AI_CONTEXT.json` (или `данные/AI_CONTEXT.json`)
 2) Затем прочитай: `docs/00_MASTER_CONTEXT.md` → `docs/01_SYSTEM_OVERVIEW.md`
