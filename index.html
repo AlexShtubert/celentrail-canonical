@@ -3,26 +3,67 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Celentrail — Balka Viewer</title>
+  <title>Celentrail • Balka Viewer</title>
+
+  <!-- Google <model-viewer> -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
   <style>
     html,body{height:100%;margin:0;background:#0b0c10;color:#e6e6e6;font-family:system-ui}
-    header{padding:12px 14px;border-bottom:1px solid #222}
-    main{height:calc(100% - 54px);display:grid;place-items:center}
-    .box{max-width:720px;padding:18px;border:1px solid #222;border-radius:12px;background:#0f1117}
-    a{color:#7dd3fc}
+    header{padding:12px 14px;border-bottom:1px solid #222;display:flex;gap:10px;align-items:center}
+    header b{font-weight:700}
+    header a{color:#7dd3fc;text-decoration:none}
+    main{height:calc(100% - 54px)}
+    model-viewer{width:100%;height:100%;background:#0b0c10}
+    .hint{position:fixed;left:12px;bottom:12px;right:12px;
+      background:rgba(15,17,23,.92);border:1px solid #222;border-radius:12px;padding:12px}
+    .row{display:flex;gap:10px;flex-wrap:wrap}
+    button{padding:10px 12px;border-radius:10px;border:1px solid #222;background:#111827;color:#e6e6e6}
     code{background:#111827;padding:2px 6px;border-radius:6px}
   </style>
 </head>
 <body>
-  <header>Celentrail • Balka Viewer</header>
+  <header>
+    <b>Celentrail • Balka Viewer</b>
+    <a href="./assets/3d/balka/latest/balka.glb" target="_blank">Открыть GLB</a>
+  </header>
+
   <main>
-    <div class="box">
-      <p>Viewer работает. Дальше тут появится <code>balka.glb</code>.</p>
-      <p>Ожидаемый путь файла:</p>
-      <p><code>assets/3d/balka/latest/balka.glb</code></p>
-      <p>Когда файл появится — можно будет подключить 3D-отображение.</p>
-      <p>Пока проверь, что Pages открывается по ссылке из Settings → Pages.</p>
-    </div>
+    <model-viewer
+      id="mv"
+      src="./assets/3d/balka/latest/balka.glb"
+      alt="Balka"
+      camera-controls
+      touch-action="pan-y"
+      shadow-intensity="0.8"
+      exposure="1.0"
+      ar
+      ar-modes="webxr scene-viewer quick-look"
+      autoplay
+    ></model-viewer>
   </main>
+
+  <div class="hint">
+    <div>Если показывается старая версия — нажми “Обновить без кеша” или добавь <code>?v=2</code> в конец ссылки.</div>
+    <div class="row" style="margin-top:10px">
+      <button onclick="forceReload()">Обновить без кеша</button>
+      <button onclick="addVersion()">Добавить ?v=...</button>
+    </div>
+  </div>
+
+  <script>
+    function forceReload() {
+      // перезагрузка с уникальным параметром
+      const u = new URL(location.href);
+      u.searchParams.set("v", Date.now().toString());
+      location.href = u.toString();
+    }
+    function addVersion() {
+      const u = new URL(location.href);
+      const cur = parseInt(u.searchParams.get("v") || "1", 10);
+      u.searchParams.set("v", String(cur + 1));
+      location.href = u.toString();
+    }
+  </script>
 </body>
 </html>
