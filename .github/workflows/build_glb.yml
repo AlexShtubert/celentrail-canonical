@@ -1,0 +1,44 @@
+name: Собрать GLB из Blender
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "tools/blender/build_scene.py"
+      - "data/AI_CONTEXT.json"
+      - ".github/workflows/build_glb.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build-glb:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Скачать репозиторий
+        uses: actions/checkout@v4
+
+      - name: Установить Blender
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y blender
+
+      - name: Собрать GLB (headless)
+        run: |
+          blender -b -P tools/blender/build_scene.py
+
+      - name: Закоммитить и запушить результат (GLB)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add assets/3d/balka/latest/balka.glb assets/3d/balka/latest/.gitkeep || true
+
+          if git diff --cached --quiet; then
+            echo "Нет изменений — коммит не нужен"
+            exit 0
+          fi
+
+          git commit -m "Автосборка: обновить balka.glb [skip ci]"
+          git push
