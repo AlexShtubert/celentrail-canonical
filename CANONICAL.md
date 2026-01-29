@@ -1,4 +1,14 @@
 # Celentrail — КАНОНИЧЕСКАЯ СПЕЦИФИКАЦИЯ (живой документ)
+## START HERE (для любого ИИ, без вопросов)
+
+1) Открой контекст: `data/AI_CONTEXT.json` (или `данные/AI_CONTEXT.json`)
+2) Затем прочитай: `docs/00_MASTER_CONTEXT.md` → `docs/01_SYSTEM_OVERVIEW.md`
+3) Узлы: `docs/10_BALKA.md` → `docs/20_TROLLEY.md` → `docs/30_TRACK_AND_ROLLERS.md` → `docs/40_LOADS_AND_TARGETS.md`
+
+### ZERO-QUESTIONS CONTRACT
+- НЕЛЬЗЯ задавать вопросы про размеры/углы/массы/материалы, если они уже есть в репозитории.
+- Если параметра нет: НЕ СПРАШИВАТЬ пользователя. Использовать DEFAULTS из `AI_CONTEXT.json`
+  и в конце ответа вывести список `MISSING_TO_ADD_TO_AI_CONTEXT.json`.
 
 **Назначение:** это единственный источник правды о системе Celentrail. 
 AI_CONTEXT: данные/AI_CONTEXT.json
