@@ -23,3 +23,4 @@ Celentrail — скрытая консольная система раздвиж
 - `celentrail_console_beam_v7_leg15.glb`
 - `celentrail_console_beam_v7_leg15_params.json`
 - `celentrail_console_beam_v7_leg15_preview.png`
+Fix kinematics: beam moves through stationary trolley
